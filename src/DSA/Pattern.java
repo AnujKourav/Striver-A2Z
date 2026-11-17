@@ -238,7 +238,26 @@ public class Pattern {
         }
     }
     public void pattern21(int n){
-
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i == 0 || i == n-1 || j == 0 || j == n-1) System.out.print("*");
+                else System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+    public void pattern22(int n){
+        for(int i=0;i<2*n-1;i++){
+            for(int j=0;j<2*n-1;j++){
+                int top = i;
+                int left = j;
+                int right = (2*n-2) - j;
+                int bottom = (2*n-2) - i;
+                int a = n - Math.min(Math.min(left,right), Math.min(top, bottom));
+                System.out.print(a);
+            }
+            System.out.println();
+        }
     }
 
     public static void main(String []args){
@@ -246,6 +265,6 @@ public class Pattern {
         System.out.print("Enter the number: ");
         int n = sc.nextInt();
         Pattern obj = new Pattern();
-        obj.pattern20(n);
+        obj.pattern22(n);
     }
 }
