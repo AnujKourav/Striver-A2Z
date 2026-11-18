@@ -1,4 +1,4 @@
-package DSA;
+package DSA.Beginner;
 
 public class BasicArray {
 

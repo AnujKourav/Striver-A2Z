@@ -1,4 +1,4 @@
-package DSA;
+package DSA.Beginner;
 import java.util.*;
 public class BasicStrings {
     public void reverseString(List<Character> s) {
@@ -116,6 +116,32 @@ public class BasicStrings {
             freq[index] = 0;
         }
         return list;
+    }
+    public List<Character> frequencySortTreeMap(String s) {
+        int freq[] = new int[26];
+        for(int i=0;i<s.length();i++){
+            int a = s.charAt(i) - 'a';
+            freq[a]++;
+        }
+        TreeMap<Integer, List<Character>> map = new TreeMap<>();
+        for(int i=0;i<26;i++){
+            if(freq[i] > 0){
+                if(!map.containsKey(freq[i])){
+                    map.put(freq[i], new ArrayList<>());
+                }
+                map.get(freq[i]).add((char)(i+'a'));
+            }
+        }
+        ArrayList <Character> ans = new ArrayList<>();
+        while(!map.isEmpty()){
+            int max = map.lastKey();
+            List<Character> list = map.get(max);
+            for(char ch : list){
+                ans.add(ch);
+            }
+            map.remove(max);
+        }
+        return ans;
     }
 
     public static void main(String[] args) {

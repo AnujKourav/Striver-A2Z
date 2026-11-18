@@ -1,4 +1,4 @@
-package DSA;
+package DSA.Beginner;
 import java.util.*;
 public class Pattern {
     public void pattern1(int n) {
